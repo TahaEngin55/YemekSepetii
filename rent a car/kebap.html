@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yemek Sepeti - Burgerler</title>
+  <link rel="stylesheet" href="bootstrap.css">
+  <link rel="icon" type="image/png" href="Logo.png">
+
+</head>
+<style>
+  body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(151, 151, 151);
+  }
+   .navbar-beyaz {background-color:white; height: 110px;}
+    .navbar-nav .nav-link {
+      color:#000000;
+      margin:0 8px;
+      font-weight:500;
+    }
+    .ürün-kart {
+      border:none;
+      overflow:hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .ürün-kart img {transition: transform 0.5s ease;
+    width: 100%;
+    height: 300px; 
+    object-fit: cover;}
+    .ürün-kart:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .ürün-kart:hover img {transform: scale(1.08);}
+    .animasyon {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+    .animasyon.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+</style>
+<body>
+
+ <nav class="navbar navbar-expand-lg navbar-beyaz slide-down " id="animatedNav">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+       <img onclick="anasayfa()" src="Logo.png" alt="Bilgem Rent A Car" height="50" class="me-2">
+      
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link " href="index.html">ANASAYFA</a></li>  
+       
+        <li class="nav-item" id="Sepetim"><a class="nav-link" href="#contact"></a></li>
+         <li class="nav-item"><a class="nav-link" style="margin-left: 600px; background-color: white; " href="#products"><img src="shopping-bag.svg" alt=""><span>Sepetim</span></a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-2">
+        
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="py-5">
+  <div class="container text-center">
+    <h1 style="margin-top: 200px; color: red;">Üzgünüz Açık Kebapçı Bulunamadı :( </h1> 
+  </div>
+</section>
+
+<footer class="bg-light text-dark text-center py-3" style="margin-top:211px;">
+  <p class="mb-0">&copy; 2025 Yemek Sepeti | Tüm Hakları Saklıdır</p>
+</footer>
+
+<script>
+    function anasayfa(){
+            window.location.href="index.html"
+        }
+                function sepetim(){
+          window.location.href="sepetim.html"
+        }
+</script>
+  <script src="bootstrap.bundle.js"></script>
+</body>
+</html>

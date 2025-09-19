@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yemek Sepeti - Anasayfa</title>
+  <link rel="stylesheet" href="bootstrap.css">
+  <link rel="icon" type="image/png" href="Logo.png">
+
+</head>
+<style>
+  body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(151, 151, 151);
+  }
+   .navbar-beyaz {background-color:white; height: 110px;}
+    .navbar-nav .nav-link {
+      color:#000000;
+      margin:0 8px;
+      font-weight:500;
+    }
+    .ürün-kart {
+      border:none;
+      overflow:hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .ürün-kart img {transition: transform 0.5s ease;
+    width: 100%;
+    height: 300px; 
+    object-fit: cover;}
+    .ürün-kart:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .ürün-kart:hover img {transform: scale(1.08);}
+    .animasyon {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+    .animasyon.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+</style>
+<body>
+
+ <nav class="navbar navbar-expand-lg navbar-beyaz slide-down " id="animatedNav">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img onclick="anasayfa()" src="Logo.png" alt="Bilgem Rent A Car" height="50" class="me-2">
+      
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link " href="#">ANASAYFA</a></li>  
+       
+        <li class="nav-item" id="Sepetim"><a class="nav-link" href="#contact"></a></li>
+         <li class="nav-item"><a class="nav-link" onclick="sepetim()" style="margin-left: 600px; background-color: white; " href="#products"><img src="shopping-bag.svg" alt=""><span>Sepetim</span></a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-2">
+        
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="py-5">
+  <div class="container text-center">
+    
+   
+    <div class="row g-4">
+      <div class="col-md-3 col-sm-6">
+        <div class="card ürün-kart">
+         <img onclick="burger()" src="Hamburger.jpg" class="card-img-top" alt="hamburger">
+          <div class="card-body"><h6 class="card-title">Hamburgerler</h6></div>
+        </div>
+      </div>
+
+
+      <div class="col-md-3 col-sm-6">
+        <div class="card ürün-kart">
+          <img onclick="döner()" src="döner.jpg" class="card-img-top" alt="döner">
+          <div class="card-body"><h6 class="card-title">Dönerler</h6></div>
+        </div>
+      </div>
+
+
+      <div class="col-md-3 col-sm-6">
+        <div class="card ürün-kart">
+          <img onclick="köfte()" src="köfte.jpeg" class="card-img-top" alt="köfte">
+          <div class="card-body"><h6 class="card-title">Köfte</h6></div>
+        </div>
+      </div>
+
+      <div id="Sigorta Ürünleri" class="col-md-3 col-sm-6">
+        <div class="card ürün-kart">
+          <img onclick="tost()" src="sandvi..jpg" class="card-img-top" alt="sandiviç">
+          <div class="card-body"><h6 class="card-title">Sandiviç ve Tost</h6></div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="card ürün-kart">
+          <img onclick="kebap()" src="kebap.jpg" class="card-img-top" alt="kebap">
+          <div class="card-body"><h6 class="card-title">Kebap</h6></div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="card ürün-kart">
+          <img src="kokoreç.jpg" class="card-img-top" alt="kokoreç">
+          <div class="card-body"><h6 class="card-title">kokoreç</h6></div>
+        </div>
+      </div>
+
+
+      <div class="col-md-3 col-sm-6">
+        <div class="card ürün-kart">
+          <img src="evyemekleri.jpg" class="card-img-top" alt="Ev Yemekleri">
+          <div class="card-body"><h6 class="card-title">Ev Yemekleri</h6></div>
+        </div>
+      </div>
+
+
+      <div class="col-md-3 col-sm-6">
+        <div class="card ürün-kart">
+          <img src="pdie,.jpg" class="card-img-top" alt="Pide">
+          <div class="card-body"><h6 class="card-title">Pide</h6></div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="card ürün-kart">
+          <img src="pizza.jpg" class="card-img-top" alt="Pizza">
+          <div class="card-body"><h6 class="card-title">Pizza</h6></div>
+        </div>
+      </div>
+
+
+      <div class="col-md-3 col-sm-6">
+        <div class="card ürün-kart">
+          <img src="vejeteryan.jpg" class="card-img-top" alt="vejeteryan">
+          <div class="card-body"><h6 class="card-title">Vejeteryan</h6></div>
+        </div>
+      </div>
+
+
+      <div class="col-md-3 col-sm-6">
+        <div class="card ürün-kart">
+          <img src="tatlı.jpg" class="card-img-top" alt="Tatlı">
+          <div class="card-body"><h6 class="card-title">Tatlı</h6></div>
+        </div>
+      </div>
+
+
+      <div class="col-md-3 col-sm-6">
+        <div class="card ürün-kart">
+           <img src="tavukpilav.jpg" class="card-img-top" alt="Tavuk Pilav">
+          <div class="card-body"><h6 class="card-title">Tavuk Pilav</h6></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="bg-light text-dark text-center py-3" style="margin-top: 127px;">
+  <p class="mb-0">&copy; 2025 Yemek Sepeti | Tüm Hakları Saklıdır</p>
+</footer>
+  <script src="bootstrap.bundle.js"></script>
+  <script>
+            function burger(){
+            window.location.href="burgerler.html"
+        }
+            function döner(){
+            window.location.href="dönerler.html"
+        }
+            function anasayfa(){
+            window.location.href="index.html"
+        }
+            function köfte(){
+            window.location.href="köfte.html"
+        }
+            function tost(){
+            window.location.href="tost.html"
+        }
+            function kebap(){
+            window.location.href="kebap.html"
+        } 
+        function sepetim(){
+          window.location.href="sepetim.html"
+        }
+
+  </script>
+</body>
+</html>

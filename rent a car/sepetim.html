@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sepetim - Yemek Sepeti</title>
+  <link rel="stylesheet" href="bootstrap.css" />
+  <link rel="icon" type="image/png" href="Logo.png" />
+  <style>
+    body {
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar-beyaz {
+      background-color: white;
+      height: 110px;
+    }
+    .sepet-kart {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    .sepet-toplam {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .urun-img {
+      height: 100px;
+      object-fit: cover;
+    }
+    .nav-link:hover {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-beyaz">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="Logo.png" alt="Logo" height="50" class="me-2" />
+      </a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" style="margin-right:700px;font-size:16px;" href="index.html">ANASAYFA</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container py-5">
+    <h2 class="text-center mb-4">Sepetim</h2>
+    <div id="sepetListesi" class="row"></div>
+
+    <div class="text-end mt-4">
+      <p class="sepet-toplam">Toplam: <span id="toplamFiyat">₺0.00</span></p>
+      <button class="btn btn-success">Siparişi Tamamla</button>
+      <button onclick="sepetiTemizle()" class="btn btn-danger ms-2">Sepeti Temizle</button>
+    </div>
+  </div>
+
+  <footer class="bg-light text-dark text-center py-3">
+    <p class="mb-0">&copy; 2025 Yemek Sepeti | Tüm Hakları Saklıdır</p>
+  </footer>
+
+  <script src="bootstrap.bundle.js"></script>
+  <script>
+    // --- SEPET VERİLERİNİ ÇEK ---
+    const sepetVerileri = JSON.parse(localStorage.getItem("sepet")) || [];
+    const sepetListesi = document.getElementById("sepetListesi");
+    const toplamFiyat = document.getElementById("toplamFiyat");
+    let toplam = 0;
+
+    if (sepetVerileri.length === 0) {
+      sepetListesi.innerHTML = "<p class='text-center'>Sepetiniz boş.</p>";
+    } else {
+      sepetVerileri.forEach((urun) => {
+        const col = document.createElement("div");
+        col.className = "col-md-6";
+
+        col.innerHTML = `
+          <div class="card sepet-kart p-3 d-flex align-items-center">
+            <img src="${urun.resim}" alt="${urun.ad}" class="urun-img me-3" />
+            <div>
+              <h5>${urun.ad}</h5>
+              <p>Fiyat: ₺${urun.fiyat}</p>
+            </div>
+          </div>
+        `;
+        toplam += Number(urun.fiyat);
+        sepetListesi.appendChild(col);
+      });
+    }
+    toplamFiyat.textContent = `₺${toplam.toFixed(2)}`;
+
+    function sepetiTemizle() {
+      localStorage.removeItem("sepet");
+      location.reload();
+    }
+  </script>
+
+  <script>
+    /*
+      Ürün eklerken örnek kullanım:
+      sepeteEkle('Tavuk Döner', 120, 'doner.jpg');
+    */
+    function sepeteEkle(ad, fiyat, resim) {
+      const sepet = JSON.parse(localStorage.getItem("sepet")) || [];
+      sepet.push({ ad: ad, fiyat: fiyat, resim: resim });
+      localStorage.setItem("sepet", JSON.stringify(sepet));
+    }
+  </script>
+</body>
+</html>
